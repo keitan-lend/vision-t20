@@ -1,3 +1,5 @@
+import { detectionModeList } from "./utils.mjs";
+
 export default (TokenHUD) => class extends TokenHUD {
     /** @override */
     static DEFAULT_OPTIONS = foundry.utils.mergeObject(super.DEFAULT_OPTIONS, {
@@ -75,7 +77,7 @@ export default (TokenHUD) => class extends TokenHUD {
             ["devilsSight", "devilsSight"],
             ["truesight", "seeAll"],
         ]) {
-            if (this.document.detectionModes.some((mode) => mode.id === detectionModeId && mode.enabled && mode.range > 0)) {
+            if (detectionModeList(this.document.detectionModes).some((mode) => mode.id === detectionModeId && mode.enabled && mode.range > 0)) {
                 visionModes.push(CONFIG.Canvas.visionModes[visionModeId]);
             }
         }
