@@ -23,7 +23,8 @@ export default (TokenHUD) => class extends TokenHUD {
 
             const i = document.createElement("i");
 
-            i.classList.add("fa-solid", "fa-eye");
+            // V14 uses the eye icon for something else
+            i.classList.add("fa-solid", game.release.generation >= 14 ? "fa-glasses" : "fa-eye");
             i.inert = true;
 
             button.append(i);
