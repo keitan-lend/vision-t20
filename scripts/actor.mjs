@@ -89,8 +89,14 @@ export default (Actor) => class extends Actor {
 
         if (senses) {
             const hasSense = (key) => {
-                if (senses instanceof Set) return senses.has(key);
-                if (Array.isArray(senses)) return senses.includes(key);
+                if (senses instanceof Set) {
+                    return senses.has(key);
+                }
+
+                if (Array.isArray(senses)) {
+                    return senses.includes(key);
+                }
+
                 return false;
             };
 
